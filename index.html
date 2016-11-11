@@ -1,1 +1,78 @@
-<p>Getting things set up!</p>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>F to C converter</title>
+
+
+
+
+    <style>
+        body
+        {
+            background-color: #fafafa;
+            color: #3a3a3a;
+            font-family: Georgia;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        }
+
+        p
+        {
+            text-align: center;
+            font-size: x-large;
+        }
+
+        .container
+        {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 auto;
+            -ms-flex: 1 auto;
+            flex: 1 auto;
+        }
+
+        .inputcontainer
+        {
+            text-align: center;
+        }
+    </style>
+
+
+
+
+</head>
+<body translate="no">
+    <div class="container">
+        <p>fahrenheit to celsius converter</p>
+        <div class="inputcontainer">
+            <input type="number" id="fahrenheit"><p>Please type fahrenheit here, then click submit</p>
+            <br><br>
+            <input type="submit" onclick="GetFahrenheit()">
+        </div>
+        <p id="displaycelsius"></p>
+    </div>
+
+
+    <script>
+        function GetFahrenheit()
+        {
+            var fahrenheit;
+            var celsius;
+            fahrenheit = document.getElementById("fahrenheit");
+            fahrenheit = fahrenheit.value;
+            celsius = ((parseInt(fahrenheit) - 32) / 1.8);
+            document.getElementById("displaycelsius").innerHTML = fahrenheit + " fahrenheit is equal to " + celsius.toFixed(0) + " celsius!";
+        }
+    </script>
+
+
+
+</body>
+</html>
