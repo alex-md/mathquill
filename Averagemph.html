@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Average mph calculator</title>
+
+
+
+
+    <style>
+        body {
+            background-color: #fafafa;
+            color: #3a3a3a;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        input {
+            padding: 1%;
+        }
+        
+        #solution {
+            color: #c66;
+            font-size: 1.2em;
+        }
+        
+        .header {
+            width: 100%;
+            background-color: #e8e8e8;
+            margin: 0 auto;
+            padding: 2%;
+        }
+        
+        .container {
+            margin: 2% auto;
+        }
+    </style>
+
+
+
+
+
+</head>
+
+<body>
+    <p class="header">
+        Calculate It - Average Miles per Hour
+    </p>
+    <div class="container">
+        <input type="text" id="distance" placeholder="miles traveled"></input>
+        <input type="text" id="time" placeholder="hours spent traveling"></input>
+        <input type="submit" value="Calculate" onclick="FindSolution()" />
+
+        <p id="solution"></p>
+
+        <p class="formula">The forumula for this equation is r=d/t
+            <p> Where R is rate (speed), is equal to d (distance) divided by t (time)</p>
+    </div>
+</body>
+
+
+
+<script>
+    function FindSolution() {
+  var distance;
+  var time;
+  distance = document.getElementById("distance");
+  distance = distance.value;
+  
+  time = document.getElementById("time");
+  time = time.value;
+  
+  var solution = document.getElementById("solution");
+  solution.innerHTML = "You averaged " + (parseFloat(distance) / parseFloat(time)) + " miles per hour"
+}
+  </script>
+
+
+
+
+</body>
+
+</html>
