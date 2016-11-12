@@ -1,78 +1,109 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>F to C converter</title>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JSreact</title>
 
 
 
 
     <style>
-        body
-        {
-            background-color: #fafafa;
+        body {
+            background-color: #f6f6f6;
             color: #3a3a3a;
-            font-family: Georgia;
+            text-align: center;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        input {
+            padding: 1%;
+        }
+        
+        #solution {
+            color: #c66;
+            font-size: 1.2em;
+        }
+        
+        .header {
+            width: 100%;
+            background-color: #3f51b5;
+            margin: 0 auto;
+            padding: 4vh;
+            font-size: 1.3em;
+            color: #f2f2f2;
+        }
+        
+        .container {
+            margin: 2% auto;
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
-            -webkit-flex-flow: row wrap;
-            -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+            width: 80%;
         }
-
-        p
-        {
-            text-align: center;
-            font-size: x-large;
-        }
-
-        .container
-        {
+        
+        ul {
+            list-style: none;
             -webkit-box-flex: 1;
             -webkit-flex: 1 auto;
             -ms-flex: 1 auto;
             flex: 1 auto;
         }
-
-        .inputcontainer
-        {
-            text-align: center;
+        
+        li {
+            padding: 8% 1%;
+            background-color: #e8e8e8;
+            border-top: 2px dashed #BDBDBD;
+        }
+        
+        a {
+            text-decoration: none;
+            padding: 8% 1%;
+            color: #2196F3;
+            font-size: 1.2em;
+        }
+        
+        .grabber {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1 auto;
+            -ms-flex: 1 auto;
+            flex: 1 auto;
+            color: #4a4a4a;
         }
     </style>
 
 
 
 
+
 </head>
+
 <body translate="no">
+
+    <div class="header">
+        JSreact Javascript Experiments
+    </div>
+
     <div class="container">
-        <p>fahrenheit to celsius converter</p>
-        <div class="inputcontainer">
-            <input type="number" id="fahrenheit"><p>Please type fahrenheit here, then click submit</p>
-            <br><br>
-            <input type="submit" onclick="GetFahrenheit()">
-        </div>
-        <p id="displaycelsius"></p>
+        <h2 class="grabber">Explore different javascript experiments and calculators:</h2>
+
+        <ul>
+            <li><a href="averagemph.html">Average MPH calculator</a></li>
+        </ul>
+
     </div>
 
 
-    <script>
-        function GetFahrenheit()
-        {
-            var fahrenheit;
-            var celsius;
-            fahrenheit = document.getElementById("fahrenheit");
-            fahrenheit = fahrenheit.value;
-            celsius = ((parseInt(fahrenheit) - 32) / 1.8);
-            document.getElementById("displaycelsius").innerHTML = fahrenheit + " fahrenheit is equal to " + celsius.toFixed(0) + " celsius!";
-        }
-    </script>
+
 
 
 
 </body>
+
 </html>
