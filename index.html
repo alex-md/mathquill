@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Mathquill editor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+
+<div id="body">
+ 
+
+<h2>Math Scratchpad+ MathQuill</h2>
+<p>
+<div id="mq1" class="mathquill-textbox"></div>
+</p>
+</div>
+<script type="text/javascript">
+var previousKeyCode=0;
+(function () {
+  
+
+  window.onload = function() {
+    var mqt = document.getElementsByClassName('mathquill-textbox'), id;
+    for (var i=0;i<mqt.length;i+=1) {
+      $(mqt[i]).keydown(function(event) {
+        document.getElementById("saved"+this.id).innerHTML="<br>Type $ to enter math.";
+console.log(previousKeyCode);
+        if((event.ctrlKey||previousKeyCode == 190) && event.keyCode == 83) { 
+          event.preventDefault(); 
+          //$(this).cursor.backspace();
+          save($(this).attr('id'),$(this).mathquill('latex'));
+        }
+        previousKeyCode = event.keyCode;
+      });
+      if (document.getElementById("logout")!=null)
+        $(mqt[i]).after('<span id="saved'+mqt[i].id+'"><br>Type $ to enter math. </span>');
+      else $(mqt[i]).after('<span id="saved'+mqt[i].id+'"><br>Type $ to enter math. </span>');
+    }
+  }
+})();
+</script>
+  <script src='http://math.chapman.edu/~jipsen/matheditor/jquery-1.7.2.js'></script>
+<script src='http://math.chapman.edu/~jipsen/matheditor/mathquill.js'></script>
+
+  
+</body>
+</html>
