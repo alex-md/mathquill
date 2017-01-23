@@ -442,7 +442,7 @@ ul {
     /* border-radius: 1%; */
     text-rendering: optimizeLegibility;
     /* box-shadow: 0px 0px 6px #aaa; */
-    border-bottom: thin solid rgba(255, 152, 0, 0.7);
+    /*border-bottom: thin solid rgba(255, 152, 0, 0.7);*/
     /* outline: #ccc; */
 }
 
