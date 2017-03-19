@@ -1,11 +1,14 @@
 span#latex {
-  font-size: small;
+  color: #95ff87;
+  display: inline-flex;
 }
 
 p {
-    text-align: center;
-    font-size: 1.7em;
-    font-family: sans-serif;
+  text-align: center;
+  font-size: 1.7em;
+  font-family: sans-serif;
+  flex: 2 1 auto;
+  flex-flow: row wrap;
 }
 
 body {
@@ -13,8 +16,14 @@ body {
   margin: 0 auto;
   padding: 1%;
   box-sizing: border-box;
+  display: flex;
 }
 
+iframe {
+  text-align: center;
+  flex: 1 auto;
+  flex-flow: row wrap;
+}
 
 /*
  * MathQuill master                http://mathquill.com
