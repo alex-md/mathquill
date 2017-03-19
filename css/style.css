@@ -1,8 +1,5 @@
 span#latex {
-  text-transform: lowercase;
-  display: inline-flex;
-  color: #2196F3;
-  margin: 0 auto;
+  display: hidden;
 }
 
 p {
