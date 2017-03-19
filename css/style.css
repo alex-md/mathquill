@@ -1,50 +1,109 @@
-span#latex {
-  text-transform: lowercase;
-  display: inline-flex;
-  color: #2196F3;
-  margin: 0 auto;
-}
-
-p {
-  text-align: center;
-  font-size: 1.7em;
-  margin: 5% auto;
-  padding: 1%;
-  font-family: sans-serif;
+html {
+  background-color: #fffde7;
+  height: 80%;
+  box-sizing: border-box;
 }
 
 body {
-  background: #fefefe;
+  min-height: 100%;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 1%;
-  box-sizing: border-box;
+  font-family: 'ABeeZee', sans-serif;
+  color: #3a3a3a;
+  background-color: #f6f6f6;
+  box-shadow: 0px 0px 9px #333;
+  font-size: 1.3em;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+h1 small {
+  font-size: 60%;
+}
+
+h2 {
+    border-bottom: solid 1px #FFC107;
+    background-color: #FDD835;
+    padding: 2%;
+    color: #444;
+    box-shadow: 0px 0px 6px #666;
+}
+
+small {
+    float: right;
+    padding: 0 4%;
+    color: #666;
+    text-decoration: overline;
+}
+
+.mathquill-textbox {
+  width: 100%;
+}
+
+code {
+  font: 90% monospace;
+  background: #DDD;
+  border-radius: .3em;
+  -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+  padding: 0 .3em;
+}
+
+code:hover {
+  color: #DDD;
+  background: #222;
+}
+
+a {
+  color: mediumblue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-shadow: #40F 0 0 .2em;
+}
+
+a:active {
+  color: #400;
+  text-shadow: red 0 0 .2em;
+}
+
+ul {
+  padding-left: 1em;
 }
 
 
 /*
- * MathQuill master                http://mathquill.com
- * by Han, Jeanine, and Mary  maintainers@mathquill.com
+ * LaTeX Math in pure HTML and CSS -- No images whatsoever
+ * v0.xa
+ * by Jay and Han
+ * Lesser GPL Licensed: http: //www.gnu.org/licenses/lgpl.html
  *
- * This Source Code Form is subject to the terms of the
- * Mozilla Public License, v. 2.0. If a copy of the MPL
- * was not distributed with this file, You can obtain
- * one at http://mozilla.org/MPL/2.0/.
+ * This file is automatically included by mathquill.js
+ *
  */
 
 @font-face {
   font-family: Symbola;
-  src: url(font/Symbola.eot);
-  src: local("Symbola Regular"), local("Symbola"), url(font/Symbola.woff2) format("woff2"), url(font/Symbola.woff) format("woff"), url(font/Symbola.ttf) format("truetype"), url(font/Symbola.otf) format("opentype"), url(font/Symbola.svg#Symbola) format("svg");
+  /*src: url(font/Symbola.eot);*/
+  src: local("Symbola Regular"), local("Symbola")/*, url(font/Symbola.ttf) format("truetype")*/
+  , url(Symbola.otf) format("opentype")/*, url(font/Symbola.svg#Symbola) format("svg")*/
+  ;
 }
 
-.mq-editable-field {
+.mathquill-editable {
   display: -moz-inline-box;
   display: inline-block;
+  white-space: pre-wrap;
 }
 
-.mq-editable-field .mq-cursor {
+.mathquill-editable .cursor {
   border-left: 1px solid black;
-  margin-left: -1px;
+  margin-right: -1px;
   position: relative;
   z-index: 1;
   padding: 0;
@@ -52,29 +111,29 @@ body {
   display: inline-block;
 }
 
-.mq-editable-field .mq-cursor.mq-blink {
+.mathquill-editable .cursor.blink {
   visibility: hidden;
 }
 
-.mq-editable-field,
-.mq-math-mode .mq-editable-field {
-  border: 1px solid gray;
+.mathquill-editable, .mathquill-embedded-latex .mathquill-editable {
+    box-shadow: 0px 0px 6px #757575;
+    padding: 1%;
+    max-width: 100%;
+    display: block;
 }
 
-.mq-editable-field.mq-focused,
-.mq-math-mode .mq-editable-field.mq-focused {
-  -webkit-box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
-  -moz-box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
-  box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
-  border-color: #709AC0;
-  border-radius: 1px;
-}
-
-.mq-math-mode .mq-editable-field {
+.mathquill-embedded-latex .mathquill-editable {
   margin: 1px;
 }
 
-.mq-editable-field .mq-latex-command-input {
+.mathquill-editable.hasCursor,
+.mathquill-editable .hasCursor {
+  /*
+  some box shadow stuff
+  */
+}
+
+.mathquill-editable .latex-command-input {
   color: inherit;
   font-family: "Courier New", monospace;
   border: 1px solid gray;
@@ -83,53 +142,37 @@ body {
   margin-left: 2px;
 }
 
-.mq-editable-field .mq-latex-command-input.mq-empty {
+.mathquill-editable .latex-command-input.empty {
   background: transparent;
 }
 
-.mq-editable-field .mq-latex-command-input.mq-hasCursor {
+.mathquill-editable .latex-command-input.hasCursor {
   border-color: ActiveBorder;
 }
 
-.mq-editable-field.mq-empty:after,
-.mq-editable-field.mq-text-mode:after,
-.mq-math-mode .mq-empty:after {
+.mathquill-editable.empty:after,
+.mathquill-textbox:after,
+.mathquill-rendered-math .empty:after {
   visibility: hidden;
   content: 'c';
 }
 
-.mq-editable-field .mq-cursor:only-child:after,
-.mq-editable-field .mq-textarea + .mq-cursor:last-child:after {
+.mathquill-editable .cursor:only-child:after,
+.mathquill-editable .textarea + .cursor:last-child:after {
   visibility: hidden;
   content: 'c';
 }
 
-.mq-editable-field .mq-text-mode .mq-cursor:only-child:after {
-  content: '';
-}
-
-.mq-editable-field.mq-text-mode {
+.mathquill-textbox {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
+  width: auto;
+  height: auto;
+  margin: 4%;
+  background-color: #fafafa;
 }
 
-.mq-root-block,
-.mq-math-mode .mq-root-block {
-  display: -moz-inline-box;
-  display: inline-block;
-  width: 100%;
-  padding: 8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  white-space: nowrap;
-  overflow: hidden;
-  vertical-align: middle;
-  align-items: center;
-  color: #2a2a2a;
-}
-
-.mq-math-mode {
+.mathquill-rendered-math {
   font-variant: normal;
   font-weight: normal;
   font-style: normal;
@@ -137,270 +180,247 @@ body {
   line-height: 1;
   display: -moz-inline-box;
   display: inline-block;
-  border: hidden;
-  box-shadow: 0px 0px 6px #8bd;
 }
 
-.mq-math-mode .mq-non-leaf,
-.mq-math-mode .mq-scaled {
+.mathquill-rendered-math .non-leaf,
+.mathquill-rendered-math .scaled {
   display: -moz-inline-box;
   display: inline-block;
 }
 
-.mq-math-mode var,
-.mq-math-mode .mq-text-mode,
-.mq-math-mode .mq-nonSymbola {
+.mathquill-rendered-math var,
+.mathquill-rendered-math .text,
+.mathquill-rendered-math .nonSymbola {
   font-family: "Times New Roman", Symbola, serif;
   line-height: .9;
 }
 
-.mq-math-mode * {
+.mathquill-rendered-math * {
   font-size: inherit;
   line-height: inherit;
   margin: 0;
   padding: 0;
-  border-color: #000000;
+  border-color: black;
   -webkit-user-select: none;
   -moz-user-select: none;
-  user-select: none;
-  box-sizing: border-box;
+  -ms-user-select: none;
+      user-select: none;
 }
 
-.mq-math-mode .mq-empty {
+.mathquill-rendered-math .empty {
   background: #ccc;
 }
 
-.mq-math-mode .mq-empty.mq-root-block {
-  background: #fff;
-  font-size: 1.2em;
-  box-shadow: 0px 0px 6px #999;
-  color: #2a2a2a;
-}
-
-.mq-math-mode.mq-empty {
+.mathquill-rendered-math.empty {
   background: transparent;
 }
 
-.mq-math-mode .mq-text-mode {
-  display: inline-block;
+.mathquill-rendered-math .text {
+  font-size: 87%;
 }
 
-.mq-math-mode .mq-text-mode.mq-hasCursor {
-  box-shadow: inset darkgray 0 .1em .2em;
-  padding: 0 .1em;
-  margin: 0 -0.1em;
-  min-width: 1ex;
-}
-
-.mq-math-mode .mq-font {
+.mathquill-rendered-math .font {
   font: 1em "Times New Roman", Symbola, serif;
 }
 
-.mq-math-mode .mq-font * {
+.mathquill-rendered-math .font * {
   font-family: inherit;
   font-style: inherit;
 }
 
-.mq-math-mode b,
-.mq-math-mode b.mq-font {
+.mathquill-rendered-math b,
+.mathquill-rendered-math b.font {
   font-weight: bolder;
 }
 
-.mq-math-mode var,
-.mq-math-mode i,
-.mq-math-mode i.mq-font {
+.mathquill-rendered-math var,
+.mathquill-rendered-math i,
+.mathquill-rendered-math i.font {
   font-style: italic;
 }
 
-.mq-math-mode var.mq-f {
-  margin-right: 0.2em;
-  margin-left: 0.1em;
+.mathquill-rendered-math var.florin {
+  margin: 0 -0.1em;
 }
 
-.mq-math-mode .mq-roman var.mq-f {
-  margin: 0;
-}
-
-.mq-math-mode big {
+.mathquill-rendered-math big {
   font-size: 125%;
 }
 
-.mq-math-mode .mq-roman {
+.mathquill-rendered-math .roman {
   font-style: normal;
 }
 
-.mq-math-mode .mq-sans-serif {
+.mathquill-rendered-math .sans-serif {
   font-family: sans-serif, Symbola, serif;
 }
 
-.mq-math-mode .mq-monospace {
+.mathquill-rendered-math .monospace {
   font-family: monospace, Symbola, serif;
 }
 
-.mq-math-mode .mq-overline {
+.mathquill-rendered-math .overline {
   border-top: 1px solid black;
   margin-top: 1px;
 }
 
-.mq-math-mode .mq-underline {
+.mathquill-rendered-math .underline {
   border-bottom: 1px solid black;
   margin-bottom: 1px;
 }
 
-.mq-math-mode .mq-binary-operator {
+.mathquill-rendered-math .binary-operator {
   padding: 0 0.2em;
   display: -moz-inline-box;
   display: inline-block;
 }
 
-.mq-math-mode .mq-supsub {
-  font-size: 90%;
-  vertical-align: -0.5em;
+.mathquill-rendered-math .unary-operator {
+  padding-left: 0.2em;
 }
 
-.mq-math-mode .mq-supsub.mq-limit {
+.mathquill-rendered-math sup,
+.mathquill-rendered-math sub {
+  position: relative;
   font-size: 80%;
+  /*PJ, was 90*/
+}
+
+.mathquill-rendered-math sup .binary-operator,
+.mathquill-rendered-math sub .binary-operator {
+  padding: 0 .1em;
+}
+
+.mathquill-rendered-math sup .unary-operator,
+.mathquill-rendered-math sub .unary-operator {
+  padding-left: .1em;
+}
+
+.mathquill-rendered-math sup.limit,
+.mathquill-rendered-math sub.limit,
+.mathquill-rendered-math sup.nthroot,
+.mathquill-rendered-math sub.nthroot {
+  font-size: 80%;
+}
+
+.mathquill-rendered-math sup .fraction,
+.mathquill-rendered-math sub .fraction {
+  font-size: 70%;
   vertical-align: -0.4em;
 }
 
-.mq-math-mode .mq-supsub.mq-sup-only {
+.mathquill-rendered-math sup .numerator,
+.mathquill-rendered-math sub .numerator {
+  padding-bottom: 0;
+}
+
+.mathquill-rendered-math sup .denominator,
+.mathquill-rendered-math sub .denominator {
+  padding-top: 0;
+}
+
+.mathquill-rendered-math sup {
   vertical-align: .5em;
 }
 
-.mq-math-mode .mq-supsub.mq-sup-only .mq-sup {
-  display: inline-block;
-  vertical-align: text-bottom;
-}
-
-.mq-math-mode .mq-supsub .mq-sup {
-  display: block;
-}
-
-.mq-math-mode .mq-supsub .mq-sub {
-  display: block;
-  float: left;
-}
-
-.mq-math-mode .mq-supsub.mq-limit .mq-sub {
-  margin-left: -0.25em;
-}
-
-.mq-math-mode .mq-supsub .mq-binary-operator {
-  padding: 0 .1em;
-}
-
-.mq-math-mode .mq-supsub .mq-fraction {
-  font-size: 70%;
-}
-
-.mq-math-mode sup.mq-nthroot {
-  font-size: 80%;
+.mathquill-rendered-math sup.limit,
+.mathquill-rendered-math sup.nthroot {
   vertical-align: 0.8em;
+}
+
+.mathquill-rendered-math sup.nthroot {
   margin-right: -0.6em;
   margin-left: .2em;
   min-width: .5em;
+  z-index: 2;
 }
 
-.mq-math-mode .mq-paren {
+.mathquill-rendered-math sub {
+  vertical-align: -0.4em;
+}
+
+.mathquill-rendered-math sub.limit {
+  vertical-align: -0.6em;
+}
+
+.mathquill-rendered-math .paren {
   padding: 0 .1em;
-  vertical-align: top;
-  -webkit-transform-origin: center .06em;
-  -moz-transform-origin: center .06em;
-  -ms-transform-origin: center .06em;
-  -o-transform-origin: center .06em;
-  transform-origin: center .06em;
+  vertical-align: bottom;
+  -webkit-transform-origin: bottom center;
+  transform-origin: bottom center;
 }
 
-.mq-math-mode .mq-paren.mq-ghost {
-  color: silver;
-}
-
-.mq-math-mode .mq-paren + span {
-  margin-top: .1em;
-  margin-bottom: .1em;
-}
-
-.mq-math-mode .mq-array {
+.mathquill-rendered-math .array {
   vertical-align: middle;
   text-align: center;
 }
 
-.mq-math-mode .mq-array > span {
+.mathquill-rendered-math .array > span {
   display: block;
 }
 
-.mq-math-mode .mq-operator-name {
+.mathquill-rendered-math .non-italicized-function {
   font-family: Symbola, "Times New Roman", serif;
   line-height: .9;
   font-style: normal;
-}
-
-.mq-math-mode var.mq-operator-name.mq-first {
-  padding-left: .2em;
-}
-
-.mq-math-mode var.mq-operator-name.mq-last {
   padding-right: .2em;
 }
 
-.mq-math-mode .mq-fraction {
+.mathquill-rendered-math .fraction {
   font-size: 90%;
   text-align: center;
-  vertical-align: -0.4em;
+  vertical-align: -0.5em;
   padding: 0 .2em;
 }
 
-.mq-math-mode .mq-fraction,
-.mq-math-mode .mq-large-operator,
-.mq-math-mode x:-moz-any-link {
+.mathquill-rendered-math .fraction,
+.mathquill-rendered-math x:-moz-any-link {
   display: -moz-groupbox;
 }
 
-.mq-math-mode .mq-fraction,
-.mq-math-mode .mq-large-operator,
-.mq-math-mode x:-moz-any-link,
-.mq-math-mode x:default {
+.mathquill-rendered-math .fraction,
+.mathquill-rendered-math x:-moz-any-link,
+.mathquill-rendered-math x:default {
   display: inline-block;
 }
 
-.mq-math-mode .mq-numerator,
-.mq-math-mode .mq-denominator {
+.mathquill-rendered-math .numerator,
+.mathquill-rendered-math .denominator {
   display: block;
 }
 
-.mq-math-mode .mq-numerator {
+.mathquill-rendered-math .numerator {
   padding: 0 0.1em;
+  margin-bottom: -0.1em;
 }
 
-.mq-math-mode .mq-denominator {
+.mathquill-rendered-math .denominator {
   border-top: 1px solid;
   float: right;
   width: 100%;
-  padding: 0.1em;
+  padding: .1em .1em 0 .1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
 }
 
-.mq-math-mode .mq-sqrt-prefix {
+.mathquill-rendered-math .sqrt-prefix {
   padding-top: 0;
   position: relative;
-  top: 0.1em;
+  top: .1em;
   vertical-align: top;
   -webkit-transform-origin: top;
-  -moz-transform-origin: top;
-  -ms-transform-origin: top;
-  -o-transform-origin: top;
   transform-origin: top;
 }
 
-.mq-math-mode .mq-sqrt-stem {
+.mathquill-rendered-math .sqrt-stem {
   border-top: 1px solid;
   margin-top: 1px;
   padding-left: .15em;
   padding-right: .2em;
   margin-right: .1em;
-  padding-top: 1px;
 }
 
-.mq-math-mode .mq-vector-prefix {
+.mathquill-rendered-math .vector-prefix {
   display: block;
   text-align: center;
   line-height: .25em;
@@ -408,138 +428,94 @@ body {
   font-size: 0.75em;
 }
 
-.mq-math-mode .mq-vector-stem {
+.mathquill-rendered-math .vector-stem {
   display: block;
 }
 
-.mq-math-mode .mq-large-operator {
-  text-align: center;
+.mathquill-rendered-math, .mathquill-rendered-math .mathquill-editable {
+    cursor: text;
+    font-family: 'ABeeZee', sans-serif;
+    /* color: #1976D2; */
+    /* padding: .3em; */
+    /* background: #eeeeee; */
+    margin: .5em;
+    /* border-radius: 1%; */
+    text-rendering: optimizeLegibility;
+    /* box-shadow: 0px 0px 6px #aaa; */
+    /*border-bottom: thin solid rgba(255, 152, 0, 0.7);*/
+    /* outline: #ccc; */
 }
 
-.mq-math-mode .mq-large-operator .mq-from,
-.mq-math-mode .mq-large-operator big,
-.mq-math-mode .mq-large-operator .mq-to {
-  display: block;
-}
-
-.mq-math-mode .mq-large-operator .mq-from,
-.mq-math-mode .mq-large-operator .mq-to {
-  font-size: 80%;
-}
-
-.mq-math-mode .mq-large-operator .mq-from {
-  float: right;
-  /* take out of normal flow to manipulate baseline */
-  width: 100%;
-}
-
-.mq-math-mode,
-.mq-math-mode .mq-editable-field {
-  cursor: text;
-  font-family: Symbola, "Times New Roman", serif;
-}
-
-.mq-math-mode .mq-overarrow {
-  border-top: 1px solid black;
-  margin-top: 1px;
-  padding-top: 0.2em;
-}
-
-.mq-math-mode .mq-overarrow:before {
-  display: block;
-  position: relative;
-  top: -0.34em;
-  font-size: 0.5em;
-  line-height: 0em;
-  content: '\27A4';
-  text-align: right;
-}
-
-.mq-math-mode .mq-overarrow.mq-arrow-left:before {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
-}
-
-.mq-math-mode .mq-selection,
-.mq-editable-field .mq-selection,
-.mq-math-mode .mq-selection .mq-non-leaf,
-.mq-editable-field .mq-selection .mq-non-leaf,
-.mq-math-mode .mq-selection .mq-scaled,
-.mq-editable-field .mq-selection .mq-scaled {
+.mathquill-rendered-math .selection,
+.mathquill-editable .selection,
+.mathquill-rendered-math .selection .non-leaf,
+.mathquill-editable .selection .non-leaf,
+.mathquill-rendered-math .selection .scaled,
+.mathquill-editable .selection .scaled {
   background: #B4D5FE !important;
   background: Highlight !important;
   color: HighlightText;
   border-color: HighlightText;
 }
 
-.mq-math-mode .mq-selection .mq-matrixed,
-.mq-editable-field .mq-selection .mq-matrixed {
+.mathquill-rendered-math .selection .matrixed,
+.mathquill-editable .selection .matrixed {
   background: #39F !important;
 }
 
-.mq-math-mode .mq-selection .mq-matrixed-container,
-.mq-editable-field .mq-selection .mq-matrixed-container {
+.mathquill-rendered-math .selection .matrixed-container,
+.mathquill-editable .selection .matrixed-container {
   filter: progid: DXImageTransform.Microsoft.Chroma(color='#3399FF') !important;
 }
 
-.mq-math-mode .mq-selection.mq-blur,
-.mq-editable-field .mq-selection.mq-blur,
-.mq-math-mode .mq-selection.mq-blur .mq-non-leaf,
-.mq-editable-field .mq-selection.mq-blur .mq-non-leaf,
-.mq-math-mode .mq-selection.mq-blur .mq-scaled,
-.mq-editable-field .mq-selection.mq-blur .mq-scaled,
-.mq-math-mode .mq-selection.mq-blur .mq-matrixed,
-.mq-editable-field .mq-selection.mq-blur .mq-matrixed {
+.mathquill-rendered-math .selection.blur,
+.mathquill-editable .selection.blur,
+.mathquill-rendered-math .selection.blur .non-leaf,
+.mathquill-editable .selection.blur .non-leaf,
+.mathquill-rendered-math .selection.blur .scaled,
+.mathquill-editable .selection.blur .scaled,
+.mathquill-rendered-math .selection.blur .matrixed,
+.mathquill-editable .selection.blur .matrixed {
   background: #D4D4D4 !important;
   color: black;
   border-color: black;
 }
 
-.mq-math-mode .mq-selection.mq-blur .mq-matrixed-container,
-.mq-editable-field .mq-selection.mq-blur .mq-matrixed-container {
+.mathquill-rendered-math .selection.blur .matrixed-container,
+.mathquill-editable .selection.blur .matrixed-container {
   filter: progid: DXImageTransform.Microsoft.Chroma(color='#D4D4D4') !important;
 }
 
-.mq-editable-field .mq-textarea,
-.mq-math-mode .mq-textarea {
+.mathquill-editable .textarea,
+.mathquill-rendered-math .textarea {
   position: relative;
   -webkit-user-select: text;
   -moz-user-select: text;
-  user-select: text;
+  -ms-user-select: text;
+      user-select: text;
 }
 
-.mq-editable-field .mq-textarea *,
-.mq-math-mode .mq-textarea *,
-.mq-editable-field .mq-selectable,
-.mq-math-mode .mq-selectable {
+.mathquill-editable .textarea *,
+.mathquill-rendered-math .textarea *,
+.mathquill-editable .selectable,
+.mathquill-rendered-math .selectable {
   -webkit-user-select: text;
   -moz-user-select: text;
-  user-select: text;
+  -ms-user-select: text;
+      user-select: text;
   position: absolute;
   clip: rect(1em 1em 1em 1em);
-  -webkit-transform: scale(0);
-  -moz-transform: scale(0);
-  -ms-transform: scale(0);
-  -o-transform: scale(0);
-  transform: scale(0);
-  resize: none;
-  width: 1px;
+  border: none;
   height: 1px;
 }
 
-.mq-math-mode .mq-matrixed {
+.mathquill-rendered-math .matrixed {
   background: white;
   display: -moz-inline-box;
   display: inline-block;
 }
 
-.mq-math-mode .mq-matrixed-container {
+.mathquill-rendered-math .matrixed-container {
   filter: progid: DXImageTransform.Microsoft.Chroma(color='white');
   margin-top: -0.1em;
 }
-
-</style>
