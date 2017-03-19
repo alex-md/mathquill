@@ -6,11 +6,9 @@ span#latex {
 }
 
 p {
-  text-align: center;
-  font-size: 1.7em;
-  margin: 5% auto;
-  padding: 1%;
-  font-family: sans-serif;
+    text-align: center;
+    font-size: 1.7em;
+    font-family: sans-serif;
 }
 
 body {
