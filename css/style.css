@@ -14,15 +14,17 @@ p {
 body {
   background: #fefefe;
   margin: 0 auto;
-  padding: 1%;
+  padding: 30px;
   box-sizing: border-box;
   display: flex;
+  max-height: 90vh;
+  max-width: 100vw;
 }
 
 iframe {
-  text-align: center;
   flex: 1 auto;
   flex-flow: row wrap;
+  min-width: 50vw;
 }
 
 /*
