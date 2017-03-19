@@ -1,6 +1,9 @@
+html {
+   box-sizing: border-box; 
+}
+
 span#latex {
-  color: #95ff87;
-  display: inline-flex;
+  visibility: hidden;
 }
 
 p {
@@ -15,7 +18,6 @@ body {
   background: #fefefe;
   margin: 0 auto;
   padding: 30px;
-  box-sizing: border-box;
   display: flex;
   max-height: 90vh;
   max-width: 100vw;
