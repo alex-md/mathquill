@@ -12,20 +12,18 @@ body {
 }
 
 span#latex {
-    visibility: hidden;
+    display: none;
 }
 
 p {
     text-align: center;
     font-size: 1.3em;
     font-family: sans-serif;
-    margin: 0 auto;
 }
 
 iframe {
-    /* flex: 1 auto; */
-    /* flex-flow: column; */
     margin: 0 auto;
+    box-shadow: 0px 0px 8px #999;
 }
 
 /*
