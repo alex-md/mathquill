@@ -4,21 +4,30 @@ html {
 }
 
 body {
-    background: #F5F5F5;
+    background: #FAFAFA;
     margin: 0 auto;
-    display: block;
     max-width: 100%;
     text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
 span#latex {
     display: none;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 p {
     text-align: center;
     font-size: 1.3em;
     font-family: sans-serif;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 iframe {
@@ -28,6 +37,8 @@ iframe {
     overflow: auto;
     height: 640px;
     width: 640px;
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 /*
