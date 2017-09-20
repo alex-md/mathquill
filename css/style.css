@@ -39,6 +39,7 @@ iframe {
     width: 960px;
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
+    zoom: 0.76;
 }
 
 /*
