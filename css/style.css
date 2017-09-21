@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     max-height: 100%;
+    padding: 1em;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
+    flex-flow: column-reverse;
     -webkit-justify-content: center;
     justify-content: center;
 }
@@ -35,26 +36,16 @@ iframe {
     box-shadow: 0px 0px 8px #999;
     resize: both;
     overflow: auto;
-    height: 600px;
-    width: 1160px;
+    height: 40em;
+    width: 90%;
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
-    zoom: 0.76;
-}
+    zoom:0.5;}
 
-/*
- * MathQuill master                http://mathquill.com
- * by Han, Jeanine, and Mary  maintainers@mathquill.com
- *
- * This Source Code Form is subject to the terms of the
- * Mozilla Public License, v. 2.0. If a copy of the MPL
- * was not distributed with this file, You can obtain
- * one at http://mozilla.org/MPL/2.0/.
- */
 @font-face {
     font-family: Symbola;
     src: url(font/Symbola.eot);
-    src: local("Symbola Regular"), local("Symbola"), url(font/Symbola.woff2) format("woff2"), url(font/Symbola.woff) format("woff"), url(font/Symbola.ttf) format("truetype"), url(font/Symbola.otf) format("opentype"), url(font/Symbola.svg#Symbola) format("svg");
+    src: local("Symbola Regular"),local("Symbola"),url(font/Symbola.woff2) format("woff2"),url(font/Symbola.woff) format("woff"),url(font/Symbola.ttf) format("truetype"),url(font/Symbola.otf) format("opentype"),url(font/Symbola.svg#Symbola) format("svg");
 }
 
 .mq-editable-field {
@@ -76,14 +67,14 @@ iframe {
     visibility: hidden;
 }
 
-.mq-editable-field, .mq-math-mode .mq-editable-field {
+.mq-editable-field,.mq-math-mode .mq-editable-field {
     border: 1px solid gray;
 }
 
-.mq-editable-field.mq-focused, .mq-math-mode .mq-editable-field.mq-focused {
-    -webkit-box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
-    -moz-box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
-    box-shadow: #8bd 0 0 1px 2px, inset #6ae 0 0 2px 0;
+.mq-editable-field.mq-focused,.mq-math-mode .mq-editable-field.mq-focused {
+    -webkit-box-shadow: #8bd 0 0 1px 2px,inset #6ae 0 0 2px 0;
+    -moz-box-shadow: #8bd 0 0 1px 2px,inset #6ae 0 0 2px 0;
+    box-shadow: #8bd 0 0 1px 2px,inset #6ae 0 0 2px 0;
     border-color: #709AC0;
     border-radius: 1px;
 }
@@ -94,7 +85,7 @@ iframe {
 
 .mq-editable-field .mq-latex-command-input {
     color: inherit;
-    font-family: "Courier New", monospace;
+    font-family: "Courier New",monospace;
     border: 1px solid gray;
     padding-right: 1px;
     margin-right: 1px;
@@ -109,12 +100,12 @@ iframe {
     border-color: ActiveBorder;
 }
 
-.mq-editable-field.mq-empty:after, .mq-editable-field.mq-text-mode:after, .mq-math-mode .mq-empty:after {
+.mq-editable-field.mq-empty:after,.mq-editable-field.mq-text-mode:after,.mq-math-mode .mq-empty:after {
     visibility: hidden;
     content: 'c';
 }
 
-.mq-editable-field .mq-cursor:only-child:after, .mq-editable-field .mq-textarea + .mq-cursor:last-child:after {
+.mq-editable-field .mq-cursor:only-child:after,.mq-editable-field .mq-textarea+.mq-cursor:last-child:after {
     visibility: hidden;
     content: 'c';
 }
@@ -128,7 +119,7 @@ iframe {
     overflow-y: hidden;
 }
 
-.mq-root-block, .mq-math-mode .mq-root-block {
+.mq-root-block,.mq-math-mode .mq-root-block {
     display: -moz-inline-box;
     display: inline-block;
     width: 100%;
@@ -152,16 +143,17 @@ iframe {
     display: -moz-inline-box;
     display: inline-block;
     border: hidden;
-    box-shadow: 0px 0px 6px #8bd;
+    box-shadow: 3px 6px 2em #212121;
+    margin: -50px 8%;
 }
 
-.mq-math-mode .mq-non-leaf, .mq-math-mode .mq-scaled {
+.mq-math-mode .mq-non-leaf,.mq-math-mode .mq-scaled {
     display: -moz-inline-box;
     display: inline-block;
 }
 
-.mq-math-mode var, .mq-math-mode .mq-text-mode, .mq-math-mode .mq-nonSymbola {
-    font-family: "Times New Roman", Symbola, serif;
+.mq-math-mode var,.mq-math-mode .mq-text-mode,.mq-math-mode .mq-nonSymbola {
+    font-family: "Times New Roman",Symbola,serif;
     line-height: .9;
 }
 
@@ -204,7 +196,7 @@ iframe {
 }
 
 .mq-math-mode .mq-font {
-    font: 1em "Times New Roman", Symbola, serif;
+    font: 1em "Times New Roman",Symbola,serif;
 }
 
 .mq-math-mode .mq-font * {
@@ -212,11 +204,11 @@ iframe {
     font-style: inherit;
 }
 
-.mq-math-mode b, .mq-math-mode b.mq-font {
+.mq-math-mode b,.mq-math-mode b.mq-font {
     font-weight: bolder;
 }
 
-.mq-math-mode var, .mq-math-mode i, .mq-math-mode i.mq-font {
+.mq-math-mode var,.mq-math-mode i,.mq-math-mode i.mq-font {
     font-style: italic;
 }
 
@@ -238,11 +230,11 @@ iframe {
 }
 
 .mq-math-mode .mq-sans-serif {
-    font-family: sans-serif, Symbola, serif;
+    font-family: sans-serif,Symbola,serif;
 }
 
 .mq-math-mode .mq-monospace {
-    font-family: monospace, Symbola, serif;
+    font-family: monospace,Symbola,serif;
 }
 
 .mq-math-mode .mq-overline {
@@ -323,7 +315,7 @@ iframe {
     color: silver;
 }
 
-.mq-math-mode .mq-paren + span {
+.mq-math-mode .mq-paren+span {
     margin-top: .1em;
     margin-bottom: .1em;
 }
@@ -333,12 +325,12 @@ iframe {
     text-align: center;
 }
 
-.mq-math-mode .mq-array > span {
+.mq-math-mode .mq-array>span {
     display: block;
 }
 
 .mq-math-mode .mq-operator-name {
-    font-family: Symbola, "Times New Roman", serif;
+    font-family: Symbola,"Times New Roman",serif;
     line-height: .9;
     font-style: normal;
 }
@@ -358,15 +350,15 @@ iframe {
     padding: 0 .2em;
 }
 
-.mq-math-mode .mq-fraction, .mq-math-mode .mq-large-operator, .mq-math-mode x:-moz-any-link {
+.mq-math-mode .mq-fraction,.mq-math-mode .mq-large-operator,.mq-math-mode x:-moz-any-link {
     display: -moz-groupbox;
 }
 
-.mq-math-mode .mq-fraction, .mq-math-mode .mq-large-operator, .mq-math-mode x:-moz-any-link, .mq-math-mode x:default {
+.mq-math-mode .mq-fraction,.mq-math-mode .mq-large-operator,.mq-math-mode x:-moz-any-link,.mq-math-mode x:default {
     display: inline-block;
 }
 
-.mq-math-mode .mq-numerator, .mq-math-mode .mq-denominator {
+.mq-math-mode .mq-numerator,.mq-math-mode .mq-denominator {
     display: block;
 }
 
@@ -418,23 +410,22 @@ iframe {
     text-align: center;
 }
 
-.mq-math-mode .mq-large-operator .mq-from, .mq-math-mode .mq-large-operator big, .mq-math-mode .mq-large-operator .mq-to {
+.mq-math-mode .mq-large-operator .mq-from,.mq-math-mode .mq-large-operator big,.mq-math-mode .mq-large-operator .mq-to {
     display: block;
 }
 
-.mq-math-mode .mq-large-operator .mq-from, .mq-math-mode .mq-large-operator .mq-to {
+.mq-math-mode .mq-large-operator .mq-from,.mq-math-mode .mq-large-operator .mq-to {
     font-size: 80%;
 }
 
 .mq-math-mode .mq-large-operator .mq-from {
     float: right;
-    /* take out of normal flow to manipulate baseline */
     width: 100%;
 }
 
-.mq-math-mode, .mq-math-mode .mq-editable-field {
+.mq-math-mode,.mq-math-mode .mq-editable-field {
     cursor: text;
-    font-family: Symbola, "Times New Roman", serif;
+    font-family: Symbola,"Times New Roman",serif;
 }
 
 .mq-math-mode .mq-overarrow {
@@ -462,39 +453,39 @@ iframe {
     -ms-filter: "FlipH";
 }
 
-.mq-math-mode .mq-selection, .mq-editable-field .mq-selection, .mq-math-mode .mq-selection .mq-non-leaf, .mq-editable-field .mq-selection .mq-non-leaf, .mq-math-mode .mq-selection .mq-scaled, .mq-editable-field .mq-selection .mq-scaled {
-    background: #B4D5FE !important;
-    background: Highlight !important;
+.mq-math-mode .mq-selection,.mq-editable-field .mq-selection,.mq-math-mode .mq-selection .mq-non-leaf,.mq-editable-field .mq-selection .mq-non-leaf,.mq-math-mode .mq-selection .mq-scaled,.mq-editable-field .mq-selection .mq-scaled {
+    background: #B4D5FE!important;
+    background: Highlight!important;
     color: HighlightText;
     border-color: HighlightText;
 }
 
-.mq-math-mode .mq-selection .mq-matrixed, .mq-editable-field .mq-selection .mq-matrixed {
-    background: #39F !important;
+.mq-math-mode .mq-selection .mq-matrixed,.mq-editable-field .mq-selection .mq-matrixed {
+    background: #39F!important;
 }
 
-.mq-math-mode .mq-selection .mq-matrixed-container, .mq-editable-field .mq-selection .mq-matrixed-container {
-    filter: progid: DXImageTransform.Microsoft.Chroma(color='#3399FF') !important;
+.mq-math-mode .mq-selection .mq-matrixed-container,.mq-editable-field .mq-selection .mq-matrixed-container {
+    filter: progid: DXImageTransform.Microsoft.Chroma(color='#3399FF')!important;
 }
 
-.mq-math-mode .mq-selection.mq-blur, .mq-editable-field .mq-selection.mq-blur, .mq-math-mode .mq-selection.mq-blur .mq-non-leaf, .mq-editable-field .mq-selection.mq-blur .mq-non-leaf, .mq-math-mode .mq-selection.mq-blur .mq-scaled, .mq-editable-field .mq-selection.mq-blur .mq-scaled, .mq-math-mode .mq-selection.mq-blur .mq-matrixed, .mq-editable-field .mq-selection.mq-blur .mq-matrixed {
-    background: #D4D4D4 !important;
+.mq-math-mode .mq-selection.mq-blur,.mq-editable-field .mq-selection.mq-blur,.mq-math-mode .mq-selection.mq-blur .mq-non-leaf,.mq-editable-field .mq-selection.mq-blur .mq-non-leaf,.mq-math-mode .mq-selection.mq-blur .mq-scaled,.mq-editable-field .mq-selection.mq-blur .mq-scaled,.mq-math-mode .mq-selection.mq-blur .mq-matrixed,.mq-editable-field .mq-selection.mq-blur .mq-matrixed {
+    background: #D4D4D4!important;
     color: black;
     border-color: black;
 }
 
-.mq-math-mode .mq-selection.mq-blur .mq-matrixed-container, .mq-editable-field .mq-selection.mq-blur .mq-matrixed-container {
-    filter: progid: DXImageTransform.Microsoft.Chroma(color='#D4D4D4') !important;
+.mq-math-mode .mq-selection.mq-blur .mq-matrixed-container,.mq-editable-field .mq-selection.mq-blur .mq-matrixed-container {
+    filter: progid: DXImageTransform.Microsoft.Chroma(color='#D4D4D4')!important;
 }
 
-.mq-editable-field .mq-textarea, .mq-math-mode .mq-textarea {
+.mq-editable-field .mq-textarea,.mq-math-mode .mq-textarea {
     position: relative;
     -webkit-user-select: text;
     -moz-user-select: text;
     user-select: text;
 }
 
-.mq-editable-field .mq-textarea *, .mq-math-mode .mq-textarea *, .mq-editable-field .mq-selectable, .mq-math-mode .mq-selectable {
+.mq-editable-field .mq-textarea *,.mq-math-mode .mq-textarea *,.mq-editable-field .mq-selectable,.mq-math-mode .mq-selectable {
     -webkit-user-select: text;
     -moz-user-select: text;
     user-select: text;
