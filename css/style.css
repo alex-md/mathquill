@@ -6,13 +6,13 @@ html {
 
 body {
     background: #FAFAFA;
-    margin: 0 auto;
+    margin: 85px auto;
     max-width: 100%;
     text-align: center;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: column wrap;
-    flex-flow: column-reverse;
+    flex-flow: column;
     -webkit-justify-content: center;
     justify-content: center;
 }
