@@ -5,7 +5,7 @@ html {
 }
 
 body {
-    background: #FAFAFA;
+    background: #F5F5F5;
     margin: 85px auto;
     max-width: 100%;
     text-align: center;
@@ -121,7 +121,7 @@ iframe {
 
 .mq-root-block,.mq-math-mode .mq-root-block {
     display: -moz-inline-box;
-    display: inline-block;
+    display: block;
     width: 100%;
     padding: 8px;
     -webkit-box-sizing: border-box;
@@ -129,9 +129,9 @@ iframe {
     box-sizing: border-box;
     white-space: nowrap;
     overflow: hidden;
-    vertical-align: middle;
-    align-items: center;
-    color: #2a2a2a;
+    /* vertical-align:middle; */
+    /* align-items:center; */
+    color: #212121;
 }
 
 .mq-math-mode {
@@ -178,6 +178,9 @@ iframe {
     font-size: 1.2em;
     box-shadow: 0px 0px 6px #999;
     color: #2a2a2a;
+    display: flex;
+    flex: 0 auto;
+    width: 13em;
 }
 
 .mq-math-mode.mq-empty {
