@@ -20,12 +20,13 @@ body {
 object {
     height: -webkit-fill-available;
     width: -webkit-fill-available;
+    padding: 5%;
 }
 
 span#latex {
-    display: none;
-    -webkit-flex: 1 0 auto;
-    flex: 1 0 auto;
+    /* display: none; */
+    /* -webkit-flex: 1 0 auto; */
+    /* flex: 1 0 auto; */
 }
 
 p {
