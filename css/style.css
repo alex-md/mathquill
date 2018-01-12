@@ -125,16 +125,17 @@ p {
 }
 
 .mq-math-mode {
-    font-variant: normal;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 115%;
-    line-height: 1;
+    /* font-variant: normal; */
+    /* font-weight: normal; */
+    /* font-style: normal; */
+    /* font-size: 115%; */
+    /* line-height: 1; */
     display: -moz-inline-box;
-    display: inline-block;
+    /* d\isplay: unset; */
     border: hidden;
     box-shadow: 3px 6px 2em #212121;
-    margin: -50px 8%;
+    margin: auto;
+    width: 60%;
 }
 
 .mq-math-mode .mq-non-leaf,.mq-math-mode .mq-scaled {
