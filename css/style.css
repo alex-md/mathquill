@@ -135,7 +135,8 @@ p {
     border: hidden;
     box-shadow: 3px 6px 2em #212121;
     margin: auto;
-    width: 60%;
+    width: auto;
+    background-color: #fafafa;
 }
 
 .mq-math-mode .mq-non-leaf,.mq-math-mode .mq-scaled {
@@ -165,13 +166,13 @@ p {
 }
 
 .mq-math-mode .mq-empty.mq-root-block {
-    background: #fff;
+    background: #fafafa;
     /* font-size: 1.2em; */
     box-shadow: 0px 0px 6px #999;
     color: #2a2a2a;
     display: -webkit-inline-box;
     /* flex: 0 auto; */
-    /* width: 13em; */
+    width: 1em;
 }
 
 .mq-math-mode.mq-empty {
