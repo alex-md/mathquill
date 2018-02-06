@@ -15,7 +15,7 @@ body {
     flex-flow: column;
     -webkit-justify-content: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 1em auto;
     overflow-y: hidden;
 }
 
@@ -37,6 +37,8 @@ p {
     font-family: sans-serif;
     -webkit-flex: 1 0 auto;
     flex: 1 0 auto;
+    margin: 0 auto;
+    padding: 0 0 2em 0;
 }
 
 .mq-editable-field {
@@ -111,16 +113,15 @@ p {
 }
 
 .mq-root-block,.mq-math-mode .mq-root-block {
-    font-size: -webkit-xxx-large;
+    font-size: x-large;
     display: -moz-inline-box;
-
     padding: .3em;
     /* -webkit-box-sizing: border-box; */
     -moz-box-sizing: border-box;
-
     color: #115;
     border: solid 2px lightblue;
     background: white;
+    width: 15em;
 }
 
 .mq-math-mode {
@@ -154,8 +155,8 @@ p {
 .mq-math-mode .mq-empty.mq-root-block {
     background: white;
     color: #2a2a2a;
-    width: 2em;
-    padding: 0 1em;
+    /* width: 12em; */
+    /* padding: 0 1em; */
 }
 
 .mq-math-mode.mq-empty {
