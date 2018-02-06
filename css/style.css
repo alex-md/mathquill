@@ -15,6 +15,8 @@ body {
     flex-flow: column;
     -webkit-justify-content: center;
     justify-content: center;
+    margin: 0 auto;
+    overflow-y: hidden;
 }
 
 object {
