@@ -111,29 +111,19 @@ p {
 .mq-root-block,.mq-math-mode .mq-root-block {
     font-size: -webkit-xxx-large;
     display: -moz-inline-box;
-    display: block;
-    width: 100%;
-    /* padding: 1em; */
-    -webkit-box-sizing: border-box;
+
+    padding: .3em;
+    /* -webkit-box-sizing: border-box; */
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    white-space: nowrap;
-    overflow: hidden;
-    /* vertical-align:middle; */
-    /* align-items:center; */
-    color: #212121;
+
+    color: #115;
+    border: solid 2px lightblue;
+    background: white;
 }
 
 .mq-math-mode {
-    /* font-variant: normal; */
-    /* font-weight: normal; */
-    /* font-style: normal; */
-    /* font-size: 115%; */
-    /* line-height: 1; */
     display: -moz-inline-box;
-    /* d\isplay: unset; */
     border: hidden;
-    box-shadow: 3px 6px 2em #212121;
     margin: auto;
     width: auto;
     background-color: #fafafa;
@@ -150,15 +140,9 @@ p {
 }
 
 .mq-math-mode * {
-    font-size: inherit;
-    line-height: inherit;
-    margin: 0;
-    padding: 0;
-    border-color: #000000;
-    -webkit-user-select: none;
+
     -moz-user-select: none;
-    user-select: none;
-    box-sizing: border-box;
+
 }
 
 .mq-math-mode .mq-empty {
@@ -166,13 +150,10 @@ p {
 }
 
 .mq-math-mode .mq-empty.mq-root-block {
-    background: #fafafa;
-    /* font-size: 1.2em; */
-    box-shadow: 0px 0px 6px #999;
+    background: white;
     color: #2a2a2a;
-    display: -webkit-inline-box;
-    /* flex: 0 auto; */
-    width: 1em;
+    width: 2em;
+    padding: 0 1em;
 }
 
 .mq-math-mode.mq-empty {
